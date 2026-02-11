@@ -22,6 +22,8 @@ Robot Operating System (ROS) is a framework that we use to develop our racing st
 
 [Windows (WSL) Instructions here](./WSL.md)
 
+[Nix / NixOS Instructions here](#nix--nixos-instructions)
+
 Regardless of how you get to Ubuntu 22.04, you should install ROS2 using the following instructions (you can skip this if you are using the DevContainer):
 
 Linux: https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debs.html
@@ -31,6 +33,22 @@ Also install colcon: https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Li
 Also install foxglove https://foxglove.dev/ and `sudo apt install ros-humble-foxglove-bridge` (skip if using DevContainer)
 
 Also install mcap storage plugin `sudo apt install ros-humble-rosbag2-storage-mcap` (skip if using DevContainer)
+
+## Nix / NixOS Instructions
+
+If you are a Nix user with flakes enabled, you can enter a development shell with all the necessary dependencies.
+
+1.  Open your terminal in the project's root directory.
+2.  Run the following command to start the development shell:
+    ```bash
+    nix develop
+    ```
+3.  The shell will have ROS2, colcon, and other tools available. You can now build the project:
+    ```bash
+    colcon build
+    ```
+
+After the build is complete, you can follow the instructions in "Task 2" to run the node and bag files. Remember to source the `install/setup.bash` file in each new terminal you open inside the nix shell.
 
 ## Task 0.5: Learn Git
 
